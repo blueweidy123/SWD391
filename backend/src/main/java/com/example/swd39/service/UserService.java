@@ -3,6 +3,7 @@ package com.example.swd39.service;
 import com.example.swd39.config.JwtProvider;
 import com.example.swd39.exception.UserException;
 import com.example.swd39.model.Role;
+import com.example.swd39.model.Services;
 import com.example.swd39.model.User;
 import com.example.swd39.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,9 @@ public class UserService implements UserDetailsService {
                 .orElseThrow(() -> new UserException("this user is not exist with this id : " + userId));
     }
 
-
+    public List<User> getAllUser() {
+        return userRepository.findAll();
+    }
 
     public Role findUserRoleByJwt(String jwt) {
         String email = jwtProvider.getEmailFromToken(jwt);

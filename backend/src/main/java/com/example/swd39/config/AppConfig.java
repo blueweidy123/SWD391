@@ -40,10 +40,10 @@ public class AppConfig {
             @Override
             public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
                 CorsConfiguration cfg = new CorsConfiguration();
-                cfg.setAllowedOrigins(Arrays.asList("http://localhost:4000"));
-                cfg.setAllowedMethods(Collections.singletonList("*"));
+                cfg.setAllowedOrigins(Arrays.asList("http://localhost:5173","http://localhost:4000"));
+                cfg.setAllowedMethods(Arrays.asList("*"));
                 cfg.setAllowCredentials(true);
-                cfg.setAllowedHeaders(Collections.singletonList("*"));
+                cfg.setAllowedHeaders(Arrays.asList("*"));
                 cfg.setExposedHeaders(Arrays.asList("Authorization"));
                 cfg.setMaxAge(3600L);
                 return cfg;
